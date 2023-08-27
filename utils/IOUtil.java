@@ -1,18 +1,17 @@
 package utils;
 
 import java.io.*;
+import java.util.List;
 
 public class IOUtil {
     private static final String absolutePath = new File("").getAbsolutePath()+File.separator+"pages"+File.separator;
     private static final String fileSeparator = File.separator;
 
-    public static void read(String[] data, String filename) {
+    public static void read(List<String> data, String filename) {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(filename), "UTF-8"))) {
             String line;
-            int count = 0;
             while ((line = br.readLine()) != null) {
-                data[count] = line;
-                count++;
+                data.add(line);
             }
         } catch (UnsupportedEncodingException e) {
             // TODO Auto-generated catch block

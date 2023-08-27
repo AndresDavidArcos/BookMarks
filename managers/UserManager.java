@@ -1,7 +1,10 @@
 package managers;
 
+import constants.Gender;
 import dao.UserDao;
 import entities.User;
+
+import java.util.List;
 
 public class UserManager {
     private static UserManager instance = new UserManager();
@@ -12,7 +15,7 @@ public class UserManager {
         return instance;
     }
 
-    public User createUser(long id, String email, String password, String firstName, String lastName,  int userGender,String userType) {
+    public User createUser(long id, String email, String password, String firstName, String lastName, Gender userGender, String userType) {
         User user = new User();
         user.setId(id);
         user.setEmail(email);
@@ -25,7 +28,7 @@ public class UserManager {
         return user;
     }
 
-    public User[] getUsers(){
+    public List<User> getUsers(){
         return dao.getUsers();
     }
 

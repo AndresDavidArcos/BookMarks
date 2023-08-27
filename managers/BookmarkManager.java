@@ -1,5 +1,7 @@
 package managers;
 
+import constants.BookGenre;
+import constants.KidFriendlyStatus;
 import dao.BookmarkDao;
 import entities.*;
 import utils.HttpConnect;
@@ -7,6 +9,7 @@ import utils.IOUtil;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
+import java.util.List;
 
 public class BookmarkManager {
     private static BookmarkManager instance = new BookmarkManager();
@@ -17,7 +20,7 @@ public class BookmarkManager {
         return instance;
     }
 
-    public Bookmark[][] getBookmarks(){
+    public List<List<Bookmark>> getBookmarks(){
         return dao.getBookmarks();
     }
 
@@ -36,7 +39,7 @@ public class BookmarkManager {
         return movie;
     }
 
-    public Book createBook(long id, String title, int publicationYear, String publisher, String[] authors, String genre, double amazonRating) {
+    public Book createBook(long id, String title, int publicationYear, String publisher, String[] authors, BookGenre genre, double amazonRating) {
         Book book = new Book();
         book.setId(id);
         book.setTitle(title);
@@ -83,7 +86,7 @@ public class BookmarkManager {
         dao.saveUserBookmark(userBookmark);
     }
 
-    public void setKidFriendlyStatus(User user, String kidFriendlyStatus, Bookmark bookmark) {
+    public void setKidFriendlyStatus(User user, KidFriendlyStatus kidFriendlyStatus, Bookmark bookmark) {
         bookmark.setKidFriendlyStatus(kidFriendlyStatus);
         bookmark.setKidFriendlyMarkedBy(user);
         System.out.println("Kid-friendly status: "+kidFriendlyStatus+ ", "+bookmark+" marked by: "+user.getEmail());

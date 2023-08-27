@@ -2,11 +2,13 @@ package entities;
 
 import constants.KidFriendlyStatus;
 
+import static constants.KidFriendlyStatus.*;
+
 public abstract class Bookmark {
     private long id;
     private String title;
     private String profileUrl;
-    private String kidFriendlyStatus = KidFriendlyStatus.UNKNOWN;
+    private KidFriendlyStatus kidFriendlyStatus = UNKNOWN;
     private User kidFriendlyMarkedBy;
     private User sharedBy;
 
@@ -26,11 +28,11 @@ public abstract class Bookmark {
         this.kidFriendlyMarkedBy = kidFriendlyMarkedBy;
     }
 
-    public String getKidFriendlyStatus() {
+    public KidFriendlyStatus getKidFriendlyStatus() {
         return kidFriendlyStatus;
     }
 
-    public void setKidFriendlyStatus(String kidFriendlyStatus) {
+    public void setKidFriendlyStatus(KidFriendlyStatus kidFriendlyStatus) {
         this.kidFriendlyStatus = kidFriendlyStatus;
     }
 

@@ -4,9 +4,11 @@ import entities.User;
 import managers.BookmarkManager;
 import managers.UserManager;
 
+import java.util.List;
+
 public class Launch {
-    private static User[] users = UserManager.getInstance().getUsers();
-    private static Bookmark[][] bookmarks = BookmarkManager.getInstance().getBookmarks();
+    private static List<User> users = UserManager.getInstance().getUsers();
+    private static List<List<Bookmark>> bookmarks = BookmarkManager.getInstance().getBookmarks();
 
     private static void loadData(){
         DataStore.loadData();
@@ -22,7 +24,7 @@ public class Launch {
     }
 
     private static void printBookmarksData(){
-        for(Bookmark[] bookMarkSet: bookmarks){
+        for(List<Bookmark> bookMarkSet: bookmarks){
             for(Bookmark bookmark : bookMarkSet){
                 System.out.println(bookmark);
             }

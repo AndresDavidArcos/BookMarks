@@ -1,12 +1,14 @@
 package entities;
 
+import constants.Gender;
+
 public  class User {
     private long id;
     private String password;
     private String firstName;
     private String lastName;
     private String email;
-    private int gender;
+    private Gender gender;
     private String userType;
 
     public long getId() {
@@ -41,11 +43,11 @@ public  class User {
         this.lastName = lastName;
     }
 
-    public int getGender() {
+    public Gender getGender() {
         return gender;
     }
 
-    public void setGender(int gender) {
+    public void setGender(Gender gender) {
         this.gender = gender;
     }
 
