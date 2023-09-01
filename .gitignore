@@ -1,0 +1,60 @@
+# Archivos compilados de Java
+*.class
+
+# Archivos de construcción de IDE
+out/
+target/
+.idea/
+.classpath
+.project
+
+# Archivos generados por Maven
+log/
+target/
+release/
+dependency-reduced-pom.xml
+buildNumber.properties
+
+# Archivos de configuración de Eclipse
+.settings/
+
+# Archivos de registro
+*.log
+logs/
+
+# Archivos de respaldo
+*~
+
+# Archivos de caché y directorios
+.cache/
+CACHEDIR.TAG
+*.swp
+*.swo
+
+# Archivos de respaldo de NetBeans
+nbproject/private/
+build/
+
+# Archivos de respaldo de IntelliJ IDEA
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+
+# Archivos de respaldo de Visual Studio Code
+.vscode/
+
+# Archivos de respaldo de JUnit
+test-output/
+
+# Archivos de respaldo de Gradle
+.gradle/
+build/
+
+# Archivos de respaldo de NetBeans
+nb-configuration.xml
+
+# Archivo de configuración de Spring Boot
+application.properties
+
+# Archivo de historial de comandos de Maven
+.mvn/

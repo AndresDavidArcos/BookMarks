@@ -1,3 +1,4 @@
+import bgjobs.WebPageDownloaderTask;
 import data.DataStore;
 import entities.Bookmark;
 import entities.User;
@@ -43,5 +44,11 @@ public class Launch {
 //        printUserData();
 //        printBookmarksData();
         start();
+        runDownloaderJob();
+    }
+
+    private static void runDownloaderJob() {
+        WebPageDownloaderTask task = new WebPageDownloaderTask(true);
+        (new Thread(task)).start();
     }
 }
