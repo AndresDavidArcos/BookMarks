@@ -1,6 +1,7 @@
 package entities;
 
 import constants.Gender;
+import constants.UserType;
 
 public  class User {
     private long id;
@@ -9,7 +10,7 @@ public  class User {
     private String lastName;
     private String email;
     private Gender gender;
-    private String userType;
+    private UserType userType;
 
     public long getId() {
         return id;
@@ -51,11 +52,11 @@ public  class User {
         this.gender = gender;
     }
 
-    public String getUserType() {
+    public UserType getUserType() {
         return userType;
     }
 
-    public void setUserType(String userType) {
+    public void setUserType(UserType userType) {
         this.userType = userType;
     }
 

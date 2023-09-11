@@ -2,12 +2,10 @@ import constants.KidFriendlyStatus;
 import controllers.BookmarkController;
 import entities.Bookmark;
 import entities.User;
-import partner.Shareable;
 
 import java.util.List;
 
 import static constants.KidFriendlyStatus.*;
-import static constants.UserType.*;
 
 public class View {
 
@@ -21,22 +19,22 @@ public class View {
                         BookmarkController.getInstance().saveUserBookmark(user, bookmark);
                         System.out.println("New item bookmarked: "+bookmark);
                     }
-                    //Mark as kid-friendly
-                    if(user.getUserType().equals(EDITOR) || user.getUserType().equals(CHIEF_EDITOR)){
-                        if(bookmark.isKidFriendlyEligible() && bookmark.getKidFriendlyStatus().equals(UNKNOWN)){
-                            KidFriendlyStatus kidFriendlyStatus = getKidFriendlyStatusDecision(bookmark);
-                            if(!kidFriendlyStatus.equals(UNKNOWN)){
-                                BookmarkController.getInstance().setKidFriendlyStatus(user, kidFriendlyStatus, bookmark);
-                            }
-                        }
-                        //SHAREABLE
-                        if(bookmark.getKidFriendlyStatus().equals(APPROVED) && bookmark instanceof Shareable){
-                            boolean isShared = getShareDecision();
-                            if(isShared){
-                                BookmarkController.getInstance().share(user, bookmark);
-                            }
-                        }
-                    }
+//                    //Mark as kid-friendly
+//                    if(user.getUserType().equals(EDITOR) || user.getUserType().equals(CHIEF_EDITOR)){
+//                        if(bookmark.isKidFriendlyEligible() && bookmark.getKidFriendlyStatus().equals(UNKNOWN)){
+//                            KidFriendlyStatus kidFriendlyStatus = getKidFriendlyStatusDecision(bookmark);
+//                            if(!kidFriendlyStatus.equals(UNKNOWN)){
+//                                BookmarkController.getInstance().setKidFriendlyStatus(user, kidFriendlyStatus, bookmark);
+//                            }
+//                        }
+//                        //SHAREABLE
+//                        if(bookmark.getKidFriendlyStatus().equals(APPROVED) && bookmark instanceof Shareable){
+//                            boolean isShared = getShareDecision();
+//                            if(isShared){
+//                                BookmarkController.getInstance().share(user, bookmark);
+//                            }
+//                        }
+//                    }
 
             }
         }

@@ -2,6 +2,7 @@ package managers;
 
 import constants.BookGenre;
 import constants.KidFriendlyStatus;
+import constants.MovieGenre;
 import dao.BookmarkDao;
 import entities.*;
 
@@ -20,7 +21,7 @@ public class BookmarkManager {
         return dao.getBookmarks();
     }
 
-    public Movie createMovie(long id, String title, String profileUrl, int releaseYear, String[] cast, String[] director, String genre, double imdbRating) {
+    public Movie createMovie(long id, String title, String profileUrl, int releaseYear, String[] cast, String[] director, MovieGenre genre, double imdbRating) {
 
         Movie movie = new Movie();
         movie.setId(id);
@@ -85,7 +86,7 @@ public class BookmarkManager {
     public void setKidFriendlyStatus(User user, KidFriendlyStatus kidFriendlyStatus, Bookmark bookmark) {
         bookmark.setKidFriendlyStatus(kidFriendlyStatus);
         bookmark.setKidFriendlyMarkedBy(user);
-        System.out.println("Kid-friendly status: "+kidFriendlyStatus+ ", "+bookmark+" marked by: "+user.getEmail());
+        dao.updateKidFriendlyStatus(bookmark);
     }
 
     public void share(User user, Bookmark bookmark) {
@@ -96,5 +97,7 @@ public class BookmarkManager {
         }else if(bookmark instanceof WebLink){
             System.out.println(((WebLink)bookmark).getItemData());
         }
+
+        dao.sharedByInfo(bookmark);
     }
 }

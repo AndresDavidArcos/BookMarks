@@ -44,7 +44,7 @@ public class Launch {
 //        printUserData();
 //        printBookmarksData();
         start();
-        runDownloaderJob();
+//        runDownloaderJob();
     }
 
     private static void runDownloaderJob() {
